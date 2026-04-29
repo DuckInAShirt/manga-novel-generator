@@ -4,8 +4,8 @@
     "api_key": "OPENCODE_GO_KEY",
     "note": "Run 'gocommit config' to find your key, or set env var OPENCODE_GO_KEY"
   },
-  "skill_path": "../../SKILL.md",
-  "references_path": "../../references",
+  "skill_path": "../SKILL.md",
+  "references_path": "../references",
   "test_models": [
     {"name": "deepseek-v4-pro", "label": "DeepSeek V4 Pro"},
     {"name": "kimi-k2.5",           "label": "Kimi K2.5"},

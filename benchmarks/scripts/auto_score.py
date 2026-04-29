@@ -36,9 +36,9 @@ def check_payoffs(text):
 
 
 def check_emotion_tags(text):
-    dialogues = len(re.findall(r"^\w+ \(.+?\):", text, re.MULTILINE | re.DOTALL))
-    all_colons = len(re.findall(r"^\w+:", text, re.MULTILINE))
-    return dialogues, all_colons
+    dialogues_with_emo = len(re.findall(r"^\w+ \(.+?\):", text, re.MULTILINE))
+    dialogues_all = len(re.findall(r"\):\s*\"", text))
+    return dialogues_with_emo, dialogues_all
 
 
 def check_character_count(text):

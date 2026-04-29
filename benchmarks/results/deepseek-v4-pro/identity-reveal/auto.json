@@ -1,0 +1,24 @@
+{
+  "raw": {
+    "scene_count": 6,
+    "valid_scenes": 6,
+    "atmosphere_tags": 6,
+    "camera_tags": 6,
+    "total_scenes": 6,
+    "payoff_checkmarks": 16,
+    "payoff_density_per_scene": 2.7,
+    "dialogues_with_emotion": 51,
+    "dialogues_total": 0,
+    "characters_detected": 8,
+    "chinese_chars": 3628
+  },
+  "scores": {
+    "format_compliance": 5.0,
+    "annotation_coverage": 5.0,
+    "payoff_density": 4.050000000000001,
+    "emotion_tag_rate": 0,
+    "character_limit": 2,
+    "char_range": 5.0
+  },
+  "overall": 3.5
+}

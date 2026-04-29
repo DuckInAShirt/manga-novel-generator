@@ -38,11 +38,14 @@ def get_api_key(cfg):
     return key
 
 
-def call_api(base_url, api_key, model, prompt, skill_md, refs):
+def call_api(base_url, api_key, model, prompt, skill_md, refs_dir):
     """Call OpenCode-compatible chat API."""
+    # Only load SKILL.md and output format spec (not all references)
     system_prompt = skill_md
-    for ref_name, ref_content in refs.items():
-        system_prompt += f"\n\n{ref_content}"
+    fmt_path = Path(refs_dir) / "output_format.md"
+    if fmt_path.exists():
+        with open(fmt_path) as f:
+            system_prompt += "\n\n" + f.read()
 
     resp = requests.post(
         f"{base_url}/chat/completions",
@@ -58,7 +61,7 @@ def call_api(base_url, api_key, model, prompt, skill_md, refs):
             ],
             "temperature": 0.8,
         },
-        timeout=180,
+        timeout=600,
     )
 
     if resp.status_code != 200:
@@ -104,8 +107,12 @@ def main():
             result_dir = BENCH_DIR / "results" / model / prompt_id
             result_dir.mkdir(parents=True, exist_ok=True)
 
+            output_file = result_dir / "output.md"
+            if output_file.exists():
+                print(f"SKIP (already exists)")
+                continue
             content, input_tk, output_tk = call_api(
-                base_url, api_key, model, prompt, skill_md, refs
+                base_url, api_key, model, prompt, skill_md, refs_path
             )
 
             if content is None:

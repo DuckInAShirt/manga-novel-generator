@@ -83,7 +83,7 @@ def main():
             ],
             "temperature": 0.3,
         },
-        timeout=180,
+        timeout=300,
     )
 
     if resp.status_code != 200:
