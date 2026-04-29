@@ -1,0 +1,24 @@
+{
+  "api": {
+    "base_url": "https://opencode.ai/zen/go/v1",
+    "api_key": "OPENCODE_GO_KEY",
+    "note": "Run 'gocommit config' to find your key, or set env var OPENCODE_GO_KEY"
+  },
+  "skill_path": "../../SKILL.md",
+  "references_path": "../../references",
+  "test_models": [
+    {"name": "deepseek-v4-pro", "label": "DeepSeek V4 Pro"},
+    {"name": "kimi-k2.5",           "label": "Kimi K2.5"},
+    {"name": "qwen3.6-plus",        "label": "Qwen3.6 Plus"},
+    {"name": "glm-5.1",             "label": "GLM-5.1"}
+  ],
+  "judge_model": {
+    "name": "minimax-m2.7",
+    "label": "MiniMax M2.7"
+  },
+  "prompts": [
+    "waste-to-warrior",
+    "checkin-system",
+    "identity-reveal"
+  ]
+}
